@@ -31,13 +31,13 @@ const NewTodo: React.FC = () => {
       className={`form ${!isValid ? "invalid" : ""}`}
     >
       <div className="form-control">
-        <label>What need to be done:</label>
+        <label>My todos</label>
         <input
           type="text"
           name="todo"
           id="todo"
           ref={inputRef}
-          placeholder="I need to do..."
+          placeholder="I need to..."
         />
         {!isValid && <p className="error-text">Please enter a todo</p>}
         <button>Add Todo</button>
