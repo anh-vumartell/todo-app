@@ -1,9 +1,9 @@
 import TodoItem from "../components/TodoItem";
 import { useTodoCtx } from "../store/todo-context";
-//type definition
+import { useState } from "react";
+const Todos = () => {
+  const { removeTodo, items, completedItems } = useTodoCtx();
 
-const Todos: React.FC = () => {
-  const { removeTodo, items } = useTodoCtx();
   return (
     <ul className="todos">
       {items.length === 0 && (
@@ -21,7 +21,7 @@ const Todos: React.FC = () => {
         </span>
         <span>All</span>
         <span>Active</span>
-        <span>Completed</span>
+        <span>{completedItems.length} Completed</span>
       </div>
     </ul>
   );

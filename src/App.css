@@ -130,10 +130,71 @@
 }
 .todo-item input {
   margin-right: 0.5rem;
+  /*Hide the browser's default checkbox*/
 }
-.selected:checked + span {
+
+/*CUSTOM CHECKBOX*/
+.label-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*Hide the browser's defaulr checkbox*/
+.label-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/*Create custom checkbox*/
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 2px solid #746c6c;
+}
+/*On hover, add grey background color*/
+.checkmark:hover {
+  background-color: #bebaba;
+}
+/* .label-container input:checked ~ .checkmark {
+  background-color: #e44a4a;
+} */
+.label-container input[type="checkbox"]:checked {
   text-decoration: line-through;
 }
+/*Create indicator (hidden when is not checked)*/
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the checkmark when checked */
+.label-container input:checked ~ .checkmark:after {
+  display: block;
+  transition: transform 700ms ease-out smooth;
+}
+/* Style the checkmark/indicator */
+.label-container .checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #e44a4a;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .remove {
   position: absolute;
   right: 1rem;
