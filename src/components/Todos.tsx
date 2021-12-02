@@ -1,6 +1,6 @@
 import TodoItem from "../components/TodoItem";
 import { useTodoCtx } from "../store/todo-context";
-import { useState } from "react";
+
 const Todos = () => {
   const { removeTodo, items, completedItems } = useTodoCtx();
 

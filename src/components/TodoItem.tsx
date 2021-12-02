@@ -9,7 +9,7 @@ type propType = {
 };
 
 const TodoItem = (props: propType) => {
-  const { removeTodo, setCompletedItems, completedItems } = useTodoCtx();
+  const { removeTodo, setCompletedItems } = useTodoCtx();
   const [checked, setChecked] = useState(false);
 
   const removeHandler = () => {
