@@ -4,7 +4,7 @@ import { useTodoCtx } from "../store/todo-context";
 
 type propType = {
   item: Todo;
-  key: number;
+
   onRemoveTodo: (id: number) => void;
 };
 
@@ -13,7 +13,7 @@ const TodoItem = (props: propType) => {
   const [checked, setChecked] = useState(false);
 
   const removeHandler = () => {
-    removeTodo(props.key);
+    removeTodo(props.item.id);
   };
   const checkedHandler = () => {
     setChecked((prevCheck) => !prevCheck);
