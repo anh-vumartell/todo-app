@@ -4,6 +4,7 @@ import { useTodoCtx } from "../store/todo-context";
 import Todo from "../models/todo";
 const Todos = () => {
   const { removeTodo, items } = useTodoCtx();
+
   const [displayedList, setDisplayedList] = useState<Todo[]>(items);
 
   let content = items.map((item) => (
@@ -32,6 +33,7 @@ const Todos = () => {
 
   // useEffect to render list of items upon list update between component rerender
   useEffect(() => {
+    localStorage.setItem("todo", JSON.stringify(items));
     displayAllHandler();
     displayCompletedHandler();
     displayActiveHandler();

@@ -23,7 +23,11 @@ const TodosContext = React.createContext<typeDef>({
 
 const TodosContextProvider: React.FC = (props) => {
   //1. Set up state to manage rendered lisr
-  const [todos, setTodos] = useState<Todo[]>(INITIAL_TODOS);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    const storedTodos = localStorage.getItem("todo");
+    const initialList = JSON.parse(storedTodos);
+    return initialList || INITIAL_TODOS;
+  });
   const [completedItems, setCompletedItems] = useState<Todo[]>([]);
   const [activeItems, setActiveItems] = useState<Todo[]>([]);
 

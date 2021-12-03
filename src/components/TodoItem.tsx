@@ -21,11 +21,12 @@ const TodoItem = (props: propType) => {
     removeTodo(props.item.id);
   };
 
+  const itemTextClass = checked ? "selected" : "";
   return (
     <>
       <li className="todo-item" key={props.item.id}>
         <label className="label-container">
-          {props.item.text}
+          <p className={itemTextClass}>{props.item.text}</p>
           <input
             type="checkbox"
             checked={checked}

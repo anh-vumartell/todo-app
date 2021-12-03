@@ -182,6 +182,14 @@
   display: block;
   transition: transform 700ms ease-out smooth;
 }
+
+/*Cross the text when checked*/
+.label-container p.selected {
+  text-decoration: line-through;
+  color: #443e3e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
 /* Style the checkmark/indicator */
 .label-container .checkmark:after {
   left: 6px;
