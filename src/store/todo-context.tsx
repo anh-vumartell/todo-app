@@ -26,6 +26,7 @@ const TodosContextProvider: React.FC = (props) => {
   const [todos, setTodos] = useState<Todo[]>(INITIAL_TODOS);
   const [completedItems, setCompletedItems] = useState<Todo[]>([]);
   const [activeItems, setActiveItems] = useState<Todo[]>([]);
+
   //2. a function to handle input
   const addTodoHandler = (todo: string) => {
     const newTodo = new Todo(todo);
@@ -48,7 +49,7 @@ const TodosContextProvider: React.FC = (props) => {
   };
 
   const activeItemsHandler = (todo: Todo) => {
-    if (todo.checked) setActiveItems((prevList) => [...prevList, todo]);
+    setActiveItems((prevList) => [...prevList, todo]);
     console.log(activeItems);
   };
 

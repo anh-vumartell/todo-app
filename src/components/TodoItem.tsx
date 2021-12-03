@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { memo, useState, useCallback } from "react";
 import Todo from "../models/todo";
 import { useTodoCtx } from "../store/todo-context";
 
 type propType = {
   item: Todo;
-
   onRemoveTodo: (id: number) => void;
 };
 
 const TodoItem = (props: propType) => {
-  const { removeTodo, setCompletedItems, setActiveItems } = useTodoCtx();
+  const { removeTodo } = useTodoCtx();
   const [checked, setChecked] = useState(false);
+
+  const checkedHandler = useCallback(() => {
+    setChecked((prevCheck) => !prevCheck);
+    props.item.checked = !props.item.checked;
+    // if (props.item.checked === true) setCompletedItems(props.item);
+  }, [props.item]);
 
   const removeHandler = () => {
     removeTodo(props.item.id);
-  };
-  const checkedHandler = () => {
-    setChecked((prevCheck) => !prevCheck);
-    props.item.checked = !props.item.checked;
-    if (props.item.checked === true) setCompletedItems(props.item);
   };
 
   return (
@@ -41,4 +41,4 @@ const TodoItem = (props: propType) => {
     </>
   );
 };
-export default TodoItem;
+export default memo(TodoItem);

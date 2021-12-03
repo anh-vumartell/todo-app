@@ -1,27 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import TodoItem from "../components/TodoItem";
 import { useTodoCtx } from "../store/todo-context";
 import Todo from "../models/todo";
 const Todos = () => {
-  const { removeTodo, items, completedItems, activeItems } = useTodoCtx();
+  const { removeTodo, items } = useTodoCtx();
   const [displayedList, setDisplayedList] = useState<Todo[]>(items);
+
   let content = items.map((item) => (
     <TodoItem key={item.id} onRemoveTodo={removeTodo} item={item} />
   ));
 
   //FUNCTION SHOWING ALL ITEMS
-  const displayAllHandler = () => {
+  const displayAllHandler = useCallback(() => {
     setDisplayedList(items);
-  };
+  }, [items]);
   //FUNCTION SHOWING ONLY COMPLETED ITEMS
-  const displayCompletedHandler = () => {
+  const displayCompletedHandler = useCallback(() => {
+    const completedItems = items.filter((todo) => todo.checked === true);
     setDisplayedList(completedItems);
-  };
+    console.log(completedItems);
+  }, [items]);
 
   //FUNCTION SHOWING ONLY ACTIVE ITEMS
-  const displayActiveHandler = () => {
+  const displayActiveHandler = useCallback(() => {
+    const activeItems = items.filter((todo) => todo.checked === false);
     setDisplayedList(activeItems);
-  };
+    console.log(activeItems);
+  }, [items]);
 
   content = displayedList.map((item) => (
     <TodoItem key={item.id} onRemoveTodo={removeTodo} item={item} />
@@ -29,8 +34,11 @@ const Todos = () => {
 
   //useEffect to render list of items upon list update between component rerender
   useEffect(() => {
-    setDisplayedList(items);
-  }, [items]);
+    displayAllHandler();
+    displayCompletedHandler();
+    displayActiveHandler();
+    console.log(items);
+  }, [items, displayActiveHandler, displayAllHandler, displayCompletedHandler]);
 
   return (
     <ul className="todos">
