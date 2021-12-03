@@ -224,7 +224,17 @@
   color: #443e3e;
   cursor: pointer;
 }
-.todo-tracker span:hover {
+.todo-tracker button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+.todo-tracker span:hover,
+.todo-tracker button:hover {
   color: #312d2d;
 }
 @keyframes bouncingBtn {
