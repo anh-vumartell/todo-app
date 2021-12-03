@@ -232,6 +232,7 @@
   color: inherit;
   font-weight: inherit;
   cursor: pointer;
+  padding: 0 1rem;
 }
 
 .todo-tracker span:hover,
@@ -241,6 +242,7 @@
 .todo-tracker button.active {
   color: #312d2d;
   border: 2px dotted #312d2d;
+  border-radius: 10px;
 }
 
 @keyframes bouncingBtn {

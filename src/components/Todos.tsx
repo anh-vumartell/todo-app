@@ -38,6 +38,14 @@ const Todos = () => {
     console.log(items);
   }, [items, displayActiveHandler, displayAllHandler, displayCompletedHandler]);
 
+  const handleActiveClass = (e) => {
+    let filterBtns = document.querySelectorAll(".todo-tracker button");
+    filterBtns.forEach((filter) => {
+      filter.classList.remove("active");
+    });
+    let currentActive = e.target;
+    currentActive.classList.add("active");
+  };
   return (
     <ul className="todos">
       {items.length === 0 && (
@@ -51,9 +59,31 @@ const Todos = () => {
           {items.length > 1 ? `${items.length} items` : `${items.length} item`}{" "}
           left
         </span>
-        <button onClick={displayAllHandler}>All</button>
-        <button onClick={displayActiveHandler}>Active</button>
-        <button onClick={displayCompletedHandler}>Completed</button>
+        <button
+          className="active"
+          onClick={(e) => {
+            displayAllHandler();
+            handleActiveClass(e);
+          }}
+        >
+          All
+        </button>
+        <button
+          onClick={(e) => {
+            displayActiveHandler();
+            handleActiveClass(e);
+          }}
+        >
+          Active
+        </button>
+        <button
+          onClick={(e) => {
+            displayCompletedHandler();
+            handleActiveClass(e);
+          }}
+        >
+          Completed
+        </button>
       </div>
     </ul>
   );
