@@ -18,21 +18,19 @@ const Todos = () => {
   const displayCompletedHandler = useCallback(() => {
     const completedItems = items.filter((todo) => todo.checked === true);
     setDisplayedList(completedItems);
-    console.log(completedItems);
   }, [items]);
 
   //FUNCTION SHOWING ONLY ACTIVE ITEMS
   const displayActiveHandler = useCallback(() => {
     const activeItems = items.filter((todo) => todo.checked === false);
     setDisplayedList(activeItems);
-    console.log(activeItems);
   }, [items]);
 
   content = displayedList.map((item) => (
     <TodoItem key={item.id} onRemoveTodo={removeTodo} item={item} />
   ));
 
-  //useEffect to render list of items upon list update between component rerender
+  // useEffect to render list of items upon list update between component rerender
   useEffect(() => {
     displayAllHandler();
     displayCompletedHandler();

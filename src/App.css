@@ -233,10 +233,16 @@
   font-weight: inherit;
   cursor: pointer;
 }
+
 .todo-tracker span:hover,
 .todo-tracker button:hover {
   color: #312d2d;
 }
+.todo-tracker button.active {
+  color: #312d2d;
+  border: 2px dotted #312d2d;
+}
+
 @keyframes bouncingBtn {
   0% {
     transform: translateY(0);
