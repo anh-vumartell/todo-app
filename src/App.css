@@ -127,6 +127,15 @@
   box-shadow: 0px 1.6px 10px rgb(209, 202, 202);
   background-color: rgba(243, 240, 243, 0.959);
   margin-bottom: 0.8rem;
+  opacity: 0;
+  -webkit-animation: addItem 0.3s linear forwards;
+  animation: addItem 0.3s linear forwards;
+}
+.todo-item .leaving {
+  -webkit-animation: removed-item-animation 0.3s
+    cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+  animation: removed-item-animation 0.3s cubic-bezier(0.55, -0.04, 0.91, 0.94)
+    forwards;
 }
 .todo-item input {
   margin-right: 0.5rem;
@@ -281,5 +290,57 @@
   .form,
   .todos {
     width: 960px;
+  }
+}
+
+/*KEYFRAMES*/
+@-webkit-keyframes addItem {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes addItem {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes removeItem {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+@keyframes removeItem {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
 }

@@ -17,8 +17,10 @@ const TodoItem = (props: propType) => {
     // if (props.item.checked === true) setCompletedItems(props.item);
   }, [props.item]);
 
-  const removeHandler = () => {
+  const removeHandler = (e) => {
     removeTodo(props.item.id);
+    let selectedEl = e.target.parentElement;
+    selectedEl.classList.add("leaving");
   };
 
   const itemTextClass = checked ? "selected" : "";

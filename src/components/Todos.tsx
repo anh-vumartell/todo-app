@@ -33,7 +33,7 @@ const Todos = () => {
 
   // useEffect to render list of items upon list update between component rerender
   useEffect(() => {
-    localStorage.setItem("todo", JSON.stringify(items));
+    localStorage.setItem("todos", JSON.stringify(items));
     displayAllHandler();
     displayCompletedHandler();
     displayActiveHandler();
