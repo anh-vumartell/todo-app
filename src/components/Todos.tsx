@@ -12,20 +12,24 @@ const Todos = () => {
   ));
 
   //FUNCTION SHOWING ALL ITEMS
-  const displayAllHandler = useCallback(() => {
+  const displayAllHandler = () => {
     setDisplayedList(items);
-  }, [items]);
+  };
   //FUNCTION SHOWING ONLY COMPLETED ITEMS
-  const displayCompletedHandler = useCallback(() => {
+  const displayCompletedHandler = () => {
     const completedItems = items.filter((todo) => todo.checked === true);
+    console.log("completed list shown");
     setDisplayedList(completedItems);
-  }, [items]);
+    console.log(completedItems);
+  };
 
   //FUNCTION SHOWING ONLY ACTIVE ITEMS
-  const displayActiveHandler = useCallback(() => {
+  const displayActiveHandler = () => {
     const activeItems = items.filter((todo) => todo.checked === false);
+    console.log("active list shown");
     setDisplayedList(activeItems);
-  }, [items]);
+    console.log(activeItems);
+  };
 
   content = displayedList.map((item) => (
     <TodoItem key={item.id} onRemoveTodo={removeTodo} item={item} />
@@ -38,7 +42,7 @@ const Todos = () => {
     displayCompletedHandler();
     displayActiveHandler();
     console.log(items);
-  }, [items, displayActiveHandler, displayAllHandler, displayCompletedHandler]);
+  }, [items]);
 
   const handleActiveClass = (e) => {
     let filterBtns = document.querySelectorAll(".todo-tracker button");

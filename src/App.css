@@ -129,14 +129,10 @@
   margin-bottom: 0.8rem;
   opacity: 0;
   -webkit-animation: addItem 0.3s linear forwards;
+  -o-animation: addItem 0.3s linear forwards;
   animation: addItem 0.3s linear forwards;
 }
-.todo-item .leaving {
-  -webkit-animation: removed-item-animation 0.3s
-    cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
-  animation: removed-item-animation 0.3s cubic-bezier(0.55, -0.04, 0.91, 0.94)
-    forwards;
-}
+
 .todo-item input {
   margin-right: 0.5rem;
   /*Hide the browser's default checkbox*/
@@ -187,7 +183,7 @@
   display: none;
 }
 /* Show the checkmark when checked */
-.label-container input:checked ~ .checkmark:after {
+.label-container input.checked ~ .checkmark:after {
   display: block;
   transition: transform 700ms ease-out smooth;
 }
@@ -262,6 +258,20 @@
   border-radius: 10px;
 }
 
+@media screen and (min-width: 600px) {
+  .form,
+  .todos {
+    width: 650px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .form,
+  .todos {
+    width: 960px;
+  }
+}
+
+/*KEYFRAMES*/
 @keyframes bouncingBtn {
   0% {
     transform: translateY(0);
@@ -280,20 +290,6 @@
   }
 }
 
-@media screen and (min-width: 600px) {
-  .form,
-  .todos {
-    width: 650px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .form,
-  .todos {
-    width: 960px;
-  }
-}
-
-/*KEYFRAMES*/
 @-webkit-keyframes addItem {
   from {
     opacity: 0;

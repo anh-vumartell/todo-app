@@ -4,19 +4,11 @@ import { INITIAL_TODOS } from "../utils/dummy_data";
 //type definition
 type typeDef = {
   items: Todo[];
-  completedItems: Todo[];
-  activeItems: Todo[];
-  setCompletedItems: (todo: Todo) => void;
-  setActiveItems: (todo: Todo) => void;
   addTodo: (todo: string) => void;
   removeTodo: (id: number) => void;
 };
 const TodosContext = React.createContext<typeDef>({
   items: [],
-  completedItems: [],
-  activeItems: [],
-  setCompletedItems: (todo) => {},
-  setActiveItems: (todo: Todo) => {},
   addTodo: () => {},
   removeTodo: (id: number) => {},
 });
@@ -28,8 +20,6 @@ const TodosContextProvider: React.FC = (props) => {
     const initialList = JSON.parse(storedTodos);
     return initialList || INITIAL_TODOS;
   });
-  const [completedItems, setCompletedItems] = useState<Todo[]>([]);
-  const [activeItems, setActiveItems] = useState<Todo[]>([]);
 
   //2. a function to handle input
   const addTodoHandler = (todo: string) => {
@@ -47,22 +37,8 @@ const TodosContextProvider: React.FC = (props) => {
     });
   };
 
-  const completedItemsHandler = (todo: Todo) => {
-    setCompletedItems((prevList) => [...prevList, todo]);
-    console.log(completedItems);
-  };
-
-  const activeItemsHandler = (todo: Todo) => {
-    setActiveItems((prevList) => [...prevList, todo]);
-    console.log(activeItems);
-  };
-
   const contextValue: typeDef = {
     items: todos,
-    completedItems: completedItems,
-    activeItems: activeItems,
-    setCompletedItems: completedItemsHandler,
-    setActiveItems: activeItemsHandler,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
   };
