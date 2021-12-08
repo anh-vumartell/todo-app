@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import TodoItem from "../components/TodoItem";
 import { useTodoCtx } from "../store/todo-context";
 import Todo from "../models/todo";
@@ -42,6 +42,7 @@ const Todos = () => {
     displayCompletedHandler();
     displayActiveHandler();
     console.log(items);
+    //eslint-disable-next-line
   }, [items]);
 
   const handleActiveClass = (e) => {

@@ -14,6 +14,7 @@ const TodoItem = React.memo((props: propType) => {
   const checkedHandler = useCallback(() => {
     setChecked((prevChecked) => !prevChecked);
     props.item.checked = !props.item.checked;
+    //eslint-disable-next-line
   }, []);
 
   const removeHandler = (e) => {
