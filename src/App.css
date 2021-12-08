@@ -49,6 +49,7 @@
   font-weight: 500;
   font-size: 18px;
   margin: 2rem;
+  overflow: hidden;
   /* overflow-y: hidden; */
 }
 
@@ -256,6 +257,28 @@
   color: #312d2d;
   border: 2px dotted #312d2d;
   border-radius: 10px;
+}
+
+/*FOOTER*/
+.footer-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.8rem;
+}
+.footer-text p {
+  padding: 0.2rem;
+}
+.footer-text a {
+  text-decoration: none;
+  color: #312d2d;
+}
+.footer-text a:active,
+.footer-text a:visited {
+  color: #443e3e;
 }
 
 @media screen and (min-width: 600px) {
