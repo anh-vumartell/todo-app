@@ -22,6 +22,7 @@ Users should be able to:
 - TypeScript v4.2.3
 - Flexbox
 - Mobile-first workflow
+- SASS - CSS pre-processor
 
 ## What I learned
 
