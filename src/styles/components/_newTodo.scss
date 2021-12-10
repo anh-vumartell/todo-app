@@ -1,0 +1,62 @@
+/*STYLE THE INPUT FORM*/
+.form {
+  height: 250px;
+  width: 90vw;
+  border-radius: 10px;
+  box-shadow: 1px 3px 15px rgb(209, 202, 202);
+  margin: 0 2rem;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(243, 240, 243, 0.959);
+}
+.form input {
+  display: block;
+  height: 2rem;
+  width: 300px;
+  margin: 2rem;
+  font-family: inherit;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.form input:focus {
+  outline: none;
+}
+.form.invalid input {
+  border-color: red;
+}
+.form label {
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.form button {
+  height: 3rem;
+  width: 8rem;
+  font-family: inherit;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: lightcyan;
+  cursor: pointer;
+  box-shadow: 2px 8px 15px rgba(0.2, 0.2, 0.2, 0.25);
+}
+.form button:hover {
+  background-color: #a6f6f6b6;
+}
+.form-control {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-text {
+  color: red;
+}
+.alert-text {
+  text-align: center;
+  margin: 1rem;
+}

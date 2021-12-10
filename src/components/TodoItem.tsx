@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from "react";
-import Todo from "../models/todo";
 import { useTodoCtx } from "../store/todo-context";
+import Todo from "../models/todo";
 
+import "../styles/components/_toDoItem.scss";
 type propType = {
   item: Todo;
   onRemoveTodo: (id: number) => void;

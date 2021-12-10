@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useTodoCtx } from "../store/todo-context";
+import "../styles/components/_newTodo.scss";
 
 // //type definition
 // type functionProp = { onAddTodo: (input: string) => void };

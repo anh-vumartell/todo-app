@@ -1,41 +1,32 @@
+//packages
 import React from "react";
-import "./App.css";
+
+//components
 import DarkModeToggle from "./components/DarkModeToggle";
-import Todos from "./components/Todos";
 import HeroSection from "./UI/HeroSection";
+import Footer from "./UI/Footer";
 import NewTodo from "./components/NewTodo";
+import Todos from "./components/Todos";
+
+//import contexts
 import TodosContextProvider from "./store/todo-context";
 import ThemeContextProvider from "./store/theme-context";
-import { useThemeCtx } from "./store/theme-context";
+
+//import styles
+import "./App.css";
+
 function App() {
-  const { isDark } = useThemeCtx();
-  console.log(isDark);
-  const appClassName = isDark === true ? "App-dark" : "";
   return (
     <ThemeContextProvider>
       <TodosContextProvider>
         <div className="App">
           <DarkModeToggle />
           <HeroSection />
-          <main className={appClassName}>
+          <main>
             <NewTodo />
             <Todos />
           </main>
-          <footer>
-            <div className="footer-text">
-              <p>Minimal Todo App © 2021</p>
-              <p>
-                Designed & coded by{" "}
-                <a href="https://github.com/anh-vumartell/todo-app">
-                  Anh Vu-Martell
-                </a>
-              </p>
-              <p>
-                Image credit to contributor from{" "}
-                <a href="https://unsplash.com/photos/0jIovxJj7pY">Unplash</a>
-              </p>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </TodosContextProvider>
     </ThemeContextProvider>

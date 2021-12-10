@@ -17,6 +17,7 @@ const Todos = () => {
 
   //FUNCTION SHOWING ALL ITEMS
   const displayAllHandler = () => {
+    console.log("all items shown");
     setDisplayedList(items);
   };
   //FUNCTION SHOWING ONLY COMPLETED ITEMS
@@ -43,8 +44,8 @@ const Todos = () => {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(items));
     displayAllHandler();
-    displayCompletedHandler();
-    displayActiveHandler();
+    // displayCompletedHandler();
+    // displayActiveHandler();
     console.log(items);
     //eslint-disable-next-line
   }, [items]);
