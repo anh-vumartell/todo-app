@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-import TodoItem from "../components/TodoItem";
 import { useTodoCtx } from "../store/todo-context";
+//components
+import TodoItem from "../components/TodoItem";
 import Todo from "../models/todo";
+
+//styles
+import "../styles/components/_toDos.scss";
 const Todos = () => {
   const { removeTodo, items } = useTodoCtx();
 

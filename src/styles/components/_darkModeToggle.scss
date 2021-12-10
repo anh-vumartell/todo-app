@@ -1,0 +1,87 @@
+:root {
+  /*Sunny side*/
+  --light-background: #e4cece;
+  --light-border: #bbb;
+  /*Moony side*/
+  --blue-background: #171775c5;
+
+  --secondary-font-color: #fff;
+}
+/*THEME TOGGLE*/
+.theme-toggle__container {
+  margin: 1rem;
+  position: relative;
+  width: 5rem;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: var(--light-background);
+  border-radius: 20px;
+
+  /* -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+}
+
+/*hide the input box*/
+.theme-toggle__checkbox {
+  display: none;
+}
+
+.theme-toggle__label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0 solid var(--light-border);
+  border-radius: 20px;
+  margin: 0;
+}
+.theme-toggle__track {
+  display: block;
+  height: 40px;
+  border: 0px solid var(--light-background);
+}
+.theme-toggle__track:before,
+.theme-toggle__track:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 40px;
+  line-height: 2.4rem;
+  font-size: 1.2rem;
+  color: var(--secondary-font-color);
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.theme-toggle__track:before {
+  content: "🌙";
+  text-transform: uppercase;
+  padding-left: 13px;
+  text-align: left;
+}
+.theme-toggle__track:after {
+  content: "🔆";
+  text-transform: uppercase;
+  padding-right: 13px;
+  text-align: right;
+}
+.theme-toggle__switch {
+  display: block;
+  width: 30px;
+  margin: 5px;
+  background: var(--secondary-font-color);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 40px;
+  border: 0 solid var(--light-border);
+  border-radius: 20px;
+  transition: all 0.35s ease-out 0s;
+}
+/*Thw Switch position changed when checkbox is checked*/
+.theme-toggle__checkbox:checked + .theme-toggle__label > .theme-toggle__track {
+  margin-left: 0;
+  background-color: var(--blue-background);
+}
+.theme-toggle__checkbox:checked + .theme-toggle__label > .theme-toggle__switch {
+  right: 0px;
+}
