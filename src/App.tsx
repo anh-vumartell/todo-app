@@ -13,7 +13,7 @@ import TodosContextProvider from "./store/todo-context";
 import ThemeContextProvider from "./store/theme-context";
 
 //import styles
-import "./App.css";
+import "./styles/styles.scss";
 
 function App() {
   return (

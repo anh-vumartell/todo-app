@@ -2,27 +2,27 @@ import React, { useContext, useState } from "react";
 
 //type definition
 type typeDef = {
-  isDark: boolean;
-  setTheme: () => void;
+  isToggle: boolean;
+  setToggle: () => void;
 };
 
 const ThemeContext = React.createContext<typeDef>({
-  isDark: false,
-  setTheme: () => {},
+  isToggle: false,
+  setToggle: () => {},
 });
 
 const ThemeContextProvider: React.FC = (props) => {
   //1. Set up state
-  const [isDark, setIsDark] = useState(false);
+  const [isToggle, setToggle] = useState(false);
 
   //2. Function to handle theme state
-  const themeToggleHandler = () => {
-    setIsDark((prevState) => !prevState);
+  const toggleHandler = () => {
+    setToggle((prevState) => !prevState);
   };
   //3. Prepare context value
   const themeContextValue: typeDef = {
-    isDark: isDark,
-    setTheme: themeToggleHandler,
+    isToggle: isToggle,
+    setToggle: toggleHandler,
   };
   return (
     <ThemeContext.Provider value={themeContextValue}>

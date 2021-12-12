@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useThemeCtx } from "../store/theme-context";
 import "../styles/components/_darkModeToggle.scss";
-
+import { setTheme } from "../utils/themes";
 const DarkModeToggle: React.FC = () => {
-  const { isDark, setTheme } = useThemeCtx();
-  const themeChangeHandler = () => {
-    setTheme();
+  const { isToggle, setToggle } = useThemeCtx();
+  const [isDark, setIsDark] = useState(false);
+  const changeHandler = () => {
+    setToggle();
+    setIsDark((prevState) => !prevState);
+    !isDark ? setTheme("theme-dark") : setTheme("theme-light");
+    console.log(document.documentElement.className);
   };
+  console.log(isToggle);
   console.log(isDark);
-
+  useEffect(() => {
+    setTheme("theme-light");
+    console.log(document.documentElement.className);
+  }, []);
   return (
     <div className="theme-toggle__container">
       <input
-        checked={isDark}
-        onChange={themeChangeHandler}
+        checked={isToggle}
+        onChange={changeHandler}
         type="checkbox"
         className="theme-toggle__checkbox"
         name="toggleSwitch"
