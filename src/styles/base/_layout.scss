@@ -7,7 +7,8 @@ html,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--light-theme-background);
+  background-color: var(--theme-background);
+  color: var(--text-color);
 }
 * {
   padding: 0;
@@ -21,10 +22,30 @@ html,
   align-items: center;
 }
 .theme-dark {
-  --dark-background: #1b1d1f;
-  --light-theme-background: #161718;
+  --theme-background: #161718;
+  --text-color: #a82828;
+  --s-button-color: #a82828;
+  --l-button-color: #a82828;
+  --tracker-btn: #a82828;
 }
 .theme-light {
-  --dark-background: #f4ecf4;
-  --light-theme-background: #e44a4a;
+  --theme-background: #e44a4a;
+  --text-color: black;
+  --s-button-color: #e44a4a;
+  --l-button-color: #1e7e7ed7;
+  --text-color: #443e3e;
+  --tracker-btn: #312d2d;
+}
+
+@media screen and (min-width: 600px) {
+  .form,
+  .todos {
+    width: 650px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .form,
+  .todos {
+    width: 960px;
+  }
 }

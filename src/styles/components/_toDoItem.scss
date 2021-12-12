@@ -73,7 +73,7 @@
 /*Cross the text when checked*/
 .label-container p.selected {
   text-decoration: line-through;
-  color: #443e3e;
+  color: var(--text-color);
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -95,7 +95,7 @@
   right: 1rem;
   cursor: pointer;
   padding: 0.3rem;
-  background-color: #e44a4a;
+  background-color: var(--s-button-color);
   border: none;
   border-radius: 50%;
   color: #312d2d;
@@ -132,10 +132,10 @@
 
 .todo-tracker span:hover,
 .todo-tracker button:hover {
-  color: #312d2d;
+  color: var(--tracker-btn);
 }
 .todo-tracker button.active {
-  color: #312d2d;
-  border: 2px dotted #312d2d;
+  color: var(--tracker-btn);
+  border: 2px dotted var(--tracker-btn);
   border-radius: 10px;
 }

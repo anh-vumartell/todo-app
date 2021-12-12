@@ -14,19 +14,6 @@ main {
   margin-top: -5rem;
 }
 
-@media screen and (min-width: 600px) {
-  .form,
-  .todos {
-    width: 650px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .form,
-  .todos {
-    width: 960px;
-  }
-}
-
 /*KEYFRAMES*/
 @keyframes bouncingBtn {
   0% {
