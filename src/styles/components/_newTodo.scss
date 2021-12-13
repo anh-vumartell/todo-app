@@ -42,6 +42,8 @@
   background-color: var(--l-button-color);
   cursor: pointer;
   box-shadow: 2px 8px 15px rgba(0.2, 0.2, 0.2, 0.25);
+  -ms-text-decoration-color: var(--text-color);
+  text-decoration-color: var(--text-color);
 }
 .form button:hover {
   background-color: #a6f6f6b6;
