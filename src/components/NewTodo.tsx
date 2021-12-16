@@ -28,12 +28,14 @@ const NewTodo: React.FC = () => {
   };
   return (
     <form
+      data-testid="form"
       onSubmit={submissionHandler}
       className={`form ${!isValid ? "invalid" : ""}`}
     >
       <div className="form-control">
-        <label>My todos</label>
+        <label htmlFor="todo">My todos</label>
         <input
+          data-testid="inputTodo"
           type="text"
           name="todo"
           id="todo"
@@ -41,7 +43,7 @@ const NewTodo: React.FC = () => {
           placeholder="I need to..."
         />
         {!isValid && <p className="error-text">Please enter a todo</p>}
-        <button>Add Todo</button>
+        <button type="submit">Add Todo</button>
       </div>
     </form>
   );

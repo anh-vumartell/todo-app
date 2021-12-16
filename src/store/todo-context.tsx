@@ -4,11 +4,13 @@ import { INITIAL_TODOS } from "../utils/dummy_data";
 //type definition
 type typeDef = {
   items: Todo[];
+  setItems: (todos: Todo[]) => void;
   addTodo: (todo: string) => void;
   removeTodo: (id: number) => void;
 };
 const TodosContext = React.createContext<typeDef>({
   items: [],
+  setItems: (todos: Todo[]) => {},
   addTodo: () => {},
   removeTodo: (id: number) => {},
 });
@@ -39,6 +41,7 @@ const TodosContextProvider: React.FC = (props) => {
 
   const contextValue: typeDef = {
     items: todos,
+    setItems: setTodos,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
   };

@@ -12,8 +12,15 @@ const TodoItem = React.memo((props: propType) => {
   const { removeTodo } = useTodoCtx();
   const [checked, setChecked] = useState(false);
 
+  // const [checkedItem, setCheckedItem] = useState(props.item);
   const checkedHandler = useCallback(() => {
     setChecked((prevChecked) => !prevChecked);
+
+    // setCheckedItem((prevCheckedItem) => ({
+    //   ...prevCheckedItem,
+    //   checked: !prevCheckedItem.checked,
+    // }));
+
     props.item.checked = !props.item.checked;
     //eslint-disable-next-line
   }, []);

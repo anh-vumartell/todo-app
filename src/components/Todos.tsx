@@ -3,9 +3,9 @@ import { useTodoCtx } from "../store/todo-context";
 //components
 import TodoItem from "../components/TodoItem";
 import Todo from "../models/todo";
-
 //styles
 import "../styles/components/_toDos.scss";
+
 const Todos = () => {
   const { removeTodo, items } = useTodoCtx();
 
